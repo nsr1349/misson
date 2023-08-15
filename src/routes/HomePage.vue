@@ -41,7 +41,7 @@ async function searchMovies(){
     isLoading.value = false
   }
 }
-async function searchDetail(id:string){
+async function searchDetail (id:string) {
   isLoading.value = true
   movieDetail.value = await fetchMovieDetial(id)
   isLoading.value = false
@@ -49,7 +49,7 @@ async function searchDetail(id:string){
 // 로컬에 검색기록 저장
 function addSearchLog( word:string ){
   const log = getItem('searchLog',[])
-  if (log.length > 5) log.shift()
+  if (log.length > 5) log.pop()
   if (log.indexOf(word) === -1) log.unshift(word)
   setItem('searchLog',JSON.stringify(log))
   searchLog.value = log
